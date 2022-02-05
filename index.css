@@ -107,3 +107,11 @@ h3 {
     padding: 1.5rem;
     width: 100%;
 }
+
+/* style the correct and incorrect classes */
+.correct {
+    background-color: #28a745;
+}
+.incorrect {
+    background-color: #dc3545;
+}

@@ -56,6 +56,7 @@ getNewQuestion = () => {
     });
 
     availableQuestions.splice(questionIndex, 1);
+    // console.log(availableQuestions);
 
     acceptingAnswers = true;
 };
@@ -69,7 +70,19 @@ choices.forEach(choice => {
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
 
-        getNewQuestion();
+        // const classToApply = "incorrect";
+        // if (selectedAnswer == currentQuestion.answer) {
+        //     classToApply = "correct";
+        // }
+        const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect"
+
+        // apply correct class to the choice container containing the correct answer to the question
+        selectedChoice.parentElement.classList.add(classToApply);
+
+        setTimeout( () => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestion();
+        }, 1000);
     })
 })
 
